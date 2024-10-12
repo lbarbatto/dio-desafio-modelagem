@@ -1,0 +1,33 @@
+classDiagram
+class Product {
+  +int id
+  +String name
+  +double price
+  +getDetails()
+}
+
+class Customer {
+  +int id
+  +String name
+  +String email
+  +register()
+  +login()
+}
+
+class Order {
+  +int id
+  +Date date
+  +double totalAmount
+  +calculateTotal()
+}
+
+class ShoppingCart {
+  +int customerId
+  +List~Product~ items
+  +addItem(Product item)
+  +removeItem(Product item)
+}
+
+Customer "1" --> "*" Order : makes
+Order "*" --> "1" Product : contains
+Customer "1" --> "1" ShoppingCart : owns
