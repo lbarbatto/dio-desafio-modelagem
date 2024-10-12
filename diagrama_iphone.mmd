@@ -1,33 +1,33 @@
 classDiagram
-class Product {
-  +int id
-  +String name
-  +double price
-  +getDetails()
-}
+    IPhone <|-- ReprodutorMusical
+    IPhone <|-- AparelhoTelefonico
+    IPhone <|-- NavegadorInternet
+    IPhone : +tocar()
+    IPhone : +pausar()
+    IPhone : +selecionarMusica(String musica)
+    IPhone : +ligar(String numero)
+    IPhone : +atender()
+    IPhone : +iniciarCorreioVoz()
+    IPhone : +exibirPagina(String url)
+    IPhone : +adicionarNovaAba()
+    IPhone : +atualizarPagina()
+     class ReprodutorMusical
+     <<interface>> ReprodutorMusical
+     ReprodutorMusical : +tocar()
+     ReprodutorMusical : +pausar()
+     ReprodutorMusical : +selecionarMusica(String musica)
 
-class Customer {
-  +int id
-  +String name
-  +String email
-  +register()
-  +login()
-}
+    class AparelhoTelefonico
+    <<interface>> AparelhoTelefonico
+    AparelhoTelefonico : +ligar(String numero)
+    AparelhoTelefonico : +atender()
+    AparelhoTelefonico : +iniciarCorreioVoz()
 
-class Order {
-  +int id
-  +Date date
-  +double totalAmount
-  +calculateTotal()
-}
+    class NavegadorInternet
+    <<interface>> NavegadorInternet
+    NavegadorInternet : +exibirPagina(String url)
+    NavegadorInternet : +adicionarNovaAba()
+    NavegadorInternet : +atualizarPagina()
+    
 
-class ShoppingCart {
-  +int customerId
-  +List~Product~ items
-  +addItem(Product item)
-  +removeItem(Product item)
-}
 
-Customer "1" --> "*" Order : makes
-Order "*" --> "1" Product : contains
-Customer "1" --> "1" ShoppingCart : owns
